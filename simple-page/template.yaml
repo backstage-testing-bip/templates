@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Template
+metadata:
+  name: simple-app-with-docs
+  title: Simple Application with Docs Template
+  description: This template demonstrates how a simple app could be created and ship with TechDocs
+  tags:
+    - demo
+    - simple
+    - techdocs
+spec:
+  owner: dstrivelli
+  templater: cookiecutter
+  type: service
+  path: '.'
+
+  schema:
+    required:
+      - component_id
+      - description
+      - additional_property
+    properties:
+      component_id:
+        title: Name
+        type: string
+        pattern: ^[a-z0-9A-Z_.-]{1,63}$
+        description: Unique name of the component
+      description:
+        title: Description
+        type: string
+        description: Help others understand what these docs are about.
+      additional_property:
+        title: Some Additional Property
+        type: string
+        description: This represents some additional property that we can use in the template
